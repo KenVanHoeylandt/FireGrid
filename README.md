@@ -11,7 +11,7 @@ When running `terraform`, the following variables will be asked for:
 - `aws_private_key_file`
 - `aws_access_key_id`
 - `aws_access_key_secret`
-- `safe_ssh_ip`
+- `safe_ssh_ip`: your WAN IP that is used to access the SSH service
 
 You can create environment variables for them. This requires prefixing them with `TF_VAR_`.
 
