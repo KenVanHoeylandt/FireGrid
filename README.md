@@ -2,6 +2,13 @@
 
 Ignition deployment with Terraform and Ansible
 
+## Prerequisites
+
+An Amazon AWS account with:
+
+- an Access Key (create one in your `Security Credentials`)
+- an EC2 Key Pair (add or create a key in the `EC2` menu under `Key Pairs`)
+
 ## Configuration
 
 When running `terraform`, the following variables will be asked for:
