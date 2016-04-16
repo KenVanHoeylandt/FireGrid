@@ -1,0 +1,30 @@
+---
+- name: create ignite group
+  become: true
+  become_user: root
+  group: name=ignite
+
+- name: create ignite user
+  become: true
+  become_user: root
+  user: name=ignite comment="Apache Ignite" group=ignite
+
+- name: download ignite package
+  become: true
+  become_user: ignite
+  get_url: url=http://apache.cs.uu.nl/ignite/{{ignite.version}}/apache-ignite-fabric-{{ignite.version}}-bin.zip dest=/tmp/ignite.zip
+
+- name: unarchive ignite package
+  become: true
+  become_user: ignite
+  unarchive: src=/tmp/ignite.zip dest=/tmp copy=no
+
+- name: move package to install path
+  become: true
+  become_user: root
+  command: mv /tmp/apache-ignite-fabric-{{ignite.version}}-bin /opt/ignite
+
+- name: make work directory
+  become: true
+  become_user: ignite
+  command: mkdir -p /opt/ignite/work

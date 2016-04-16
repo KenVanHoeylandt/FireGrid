@@ -1,0 +1,20 @@
+---
+- name: add repo for java 8
+  become: true
+  become_user: root
+  apt_repository: repo='ppa:webupd8team/java' state=present
+
+- name: set licence selected
+  become: true
+  become_user: root
+  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+  
+- name: set licence seen
+  become: true
+  become_user: root
+  shell: /bin/echo debconf shared/accepted-oracle-license-v1-1 seen true | /usr/bin/debconf-set-selections
+
+- name: install java 
+  become: true
+  become_user: root
+  apt: name=oracle-java8-installer state=latest update-cache=yes force=yes

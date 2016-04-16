@@ -1,0 +1,10 @@
+# Terraform
+.terraform/
+terraform.tfstate
+terraform.tfstate.backup
+
+# Vagrant
+.vagrant/
+
+# Ansible
+ansible/master.retry
