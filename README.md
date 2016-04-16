@@ -1,6 +1,6 @@
 # FireGrid
 
-Ignition deployment with Terraform and Ansible
+Apache Ignition deployment with Terraform and Ansible.
 
 ## Prerequisites
 
