@@ -1,16 +1,7 @@
 # Environment
 #
 # Set the following as environment variable.
-# For example: TF_VAR_aws_key_name
-
-variable "aws_ssh_key_name" {
-}
-
-variable "aws_private_key_user" {
-}
-
-variable "aws_private_key_file" {
-}
+# For example: TF_VAR_aws_ssh_key_name
 
 variable "aws_access_key_id" {
 }
@@ -18,7 +9,17 @@ variable "aws_access_key_id" {
 variable "aws_access_key_secret" {
 }
 
+variable "aws_ssh_key_name" {
+}
+
+variable "aws_ssh_private_key_file" {
+}
+
 variable "safe_ssh_ip" {
+}
+
+variable "aws_ssh_user" {
+	default = "ubuntu" # defined by aws_worker_ami
 }
 
 # AWS

@@ -9,15 +9,16 @@ An Amazon AWS account with:
 - an Access Key (create one in your `Security Credentials`)
 - an EC2 Key Pair (add or create a key in the `EC2` menu under `Key Pairs`)
 
+WARNING: Launching instances on Amazon EC2 costs money!
+
 ## Configuration
 
 When running `terraform`, the following variables will be asked for:
 
-- `aws_ssh_key_name`
-- `aws_private_key_user`
-- `aws_private_key_file`
 - `aws_access_key_id`
 - `aws_access_key_secret`
+- `aws_ssh_key_name`
+- `aws_ssh_private_key_file`
 - `safe_ssh_ip`: your WAN IP that is used to access the SSH service
 
 You can create environment variables for them. This requires prefixing them with `TF_VAR_`.

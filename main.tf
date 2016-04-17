@@ -23,8 +23,8 @@ resource "aws_instance" "worker" {
 			"ls -l"
 		]
 		connection {
-			user = "${var.aws_private_key_user}"
-			private_key = "${var.aws_private_key_file}"
+			user = "${var.aws_ssh_user}"
+			private_key = "${var.aws_ssh_private_key_file}"
 		}
 	}
 }
@@ -38,6 +38,6 @@ resource "null_resource" "ansible-provisioning" {
 	}
 
 	provisioner "local-exec" {
-		command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook --inventory-file=`which terraform-inventory` --private-key=${var.aws_private_key_file} -u ${var.aws_private_key_user} --ssh-common-args='-o UserKnownHostsFile=/dev/null' ansible/master.yaml"
+		command = "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook --inventory-file=`which terraform-inventory` --private-key=${var.aws_ssh_private_key_file} -u ${var.aws_ssh_user} --ssh-common-args='-o UserKnownHostsFile=/dev/null' ansible/master.yaml"
 	}
 }
